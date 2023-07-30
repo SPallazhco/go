@@ -106,5 +106,34 @@ func main() {
 		fmt.Println(string(varBytes))
 		fmt.Println(string(vector))
 
+		fmt.Println("******ARRAY*****")
+		var myArrayVar [6]int
+		myArrayVar[1] = 1
+		myArrayVar[2] = 2
+		myArrayVar[3] = 3
+		fmt.Println("******SLICE*****")
+		var slice1 []int
+		fmt.Printf("Size: %d, Value: %v\n", len(slice1), slice1)
+		slice1 = append(slice1, 10, 20, 30, 40, 50)
+		fmt.Printf("Size: %d, Value: %v\n", len(slice1), slice1)
+		mySlice := myArrayVar[2:5]
+		fmt.Printf("Size: %d, Value: %v\n", len(mySlice), mySlice)
+
+		fmt.Println(&myArrayVar[2])
+		fmt.Println(&mySlice[0])
+
+		fmt.Println(myArrayVar)
+
+		mySlice[0] = 2
+		mySlice[1] = 3
+		mySlice[2] = 4
+
+		fmt.Printf("Size: %d, Value: %v\n", len(mySlice), mySlice)
+		fmt.Println(myArrayVar[:4])
+		fmt.Println(myArrayVar[2:])
+
+		slice := make([]int, 3)
+		fmt.Println(slice)
+
 	}
 }
