@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"github.com/SPallazhco/go/structsInterfaces/strunctsInterface/structs"
+	"github.com/SPallazhco/go/structsInterfaces/strunctsInterface/vehicles"
 )
 
 func main() {
@@ -86,4 +87,27 @@ func main() {
 	fmt.Println("TOTAL PRODUCTS", len(car.Products))
 	fmt.Printf("TOTAL CAR: $%.2f\n", car.Total())
 
+	fmt.Println()
+	fmt.Println()
+	fmt.Println("****Vehicles****")
+	carVehicles := vehicles.Car{Time: 120}
+	fmt.Println(carVehicles.Distance())
+	fmt.Println()
+	fmt.Println()
+	fmt.Println("***** EJEMPLO DE INTERFACES ****")
+	vArray := []string{"CAR", "MOTORCICLE", "TRUCK", "MOTORCICLE", "TRUCK", "AVION", "S"}
+	var distanceTotal float64
+	for _, value := range vArray {
+		fmt.Printf("Vehicle: %s", value)
+
+		vech, err := vehicles.New(value, 400)
+		if err != nil {
+			fmt.Println("Error: ", err)
+			continue
+		}
+		distance := vech.Distance()
+		fmt.Printf("\nDistance: %.2f\n", distance)
+		distanceTotal += distance
+	}
+	fmt.Printf("\nDistance total: %.2f\n", distanceTotal)
 }
